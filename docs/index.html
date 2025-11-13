@@ -15,5 +15,24 @@
     <button type="submit">Go</button>
   </form>
 
+  <script>
+    // Base URL of your Render backend
+    const API_BASE = "https://ws4-express-route-form-z07f.onrender.com";
+    
+    // Function to run a search via the backend API
+    async function runSearch(term) {
+      // Send GET request to /api/search with a query string parameter q
+      const res = await fetch(
+        API_BASE + "/api/search?q=" + encodeURIComponent(term)
+      );
+    
+      // Parse the JSON body of the HTTP response
+      const data = await res.json();
+    
+      // For now, log the data in the browser console (later you can render it in the DOM)
+      console.log(data);
+    }
+  </script>
+
 </body>
 </html>
